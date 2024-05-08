@@ -1,0 +1,76 @@
+﻿#DanhMuc {
+    background-color: #ffff;
+    background-size: cover;
+}
+
+    #DanhMuc table {
+        width: 98%;
+        margin: 13px;
+        padding-top: 2px;
+    }
+
+        #DanhMuc table thead tr th {
+            border: 1px solid #000;
+            border-collapse: collapse;
+            width: 1px;
+        }
+
+    #DanhMuc #NhomTB div {
+        display: inline-block;
+    }
+
+    #DanhMuc #LoaiTB div {
+        display: inline-block;
+    }
+
+    #DanhMuc #ThietBi div {
+        display: inline-block;
+    }
+
+    #DanhMuc #HangSX div {
+        display: inline-block;
+    }
+
+    #DanhMuc #DonVi div {
+        display: inline-block;
+    }
+
+    #DanhMuc .search button:hover {
+        background: #bdbbbb;
+    }
+
+    #DanhMuc h3 {
+        margin-left: 15px;
+    }
+
+    #DanhMuc .search {
+        float: right;
+        margin-right: 16px;
+    }
+
+    #DanhMuc .button button {
+        margin-left: 15px;
+        background: green;
+        color: #ffff;
+        border: 1px solid gray;
+    }
+
+        #DanhMuc .button button:hover {
+            background: rgb(29, 161, 42);
+        }
+
+    #DanhMuc table #check {
+        width: 4%;
+    }
+
+    #DanhMuc table #stt {
+        width: 4%;
+    }
+
+    #DanhMuc table #note {
+        width: 25%px;
+    }
+
+    #DanhMuc table #operation {
+        width: 10%;
+    }

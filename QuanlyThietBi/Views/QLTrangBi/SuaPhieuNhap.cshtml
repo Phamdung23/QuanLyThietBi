@@ -1,0 +1,89 @@
+﻿@model DATA.Entity.TANG
+@{
+    ViewBag.Title = "SuaPhieuNhap";
+    Layout = "~/Share/layout.cshtml";
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities(); 
+}
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" /> 
+    <link href="~/Them/CSS/QuanLy/SuaPhieuNhap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="~/Quanly/CapPhat">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="~/Quanly/ThuHoi">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="~/Quanly/ThanhLy">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="~/Quanly/SuaChua">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="~/Quanly/KiemKe">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label for="MaTang">Mã phiếu nhập:</label>
+                        <input type="number" id="ngay-lap-phieu" name="MaTang" value="@Model.MaTang">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaLoai">Loại thiết bị: @Model.MaLoai</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="Soluong">Số lượng: @Model.SoLuong</label>
+                        <input type="hidden" id="so-luong" name="SoLuong" value="@Model.SoLuong">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="TongTien">Tổng Tiền: @Model.TongTien</label>
+                        <input type="hidden" id="tong-tien" name="TongTien" value="@Model.TongTien">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NgayTang">Ngày Lập Phiếu:</label>
+                        <input type="date" id="ngay-lap-phieu" name="NgayTang" value="@Model.NgayTang">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiLapPhieu">Người Nhập Phiếu:</label>
+                        <input type="text" id="nguoi-nhap-phieu" name="NguoiLapPhieu" value="@Model.NguoiLapPhieu">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiNhan">Người Phụ Trách:</label>
+                        <input type="text" id="nguoi-phu-trach" name="NguoiNhan" value="@Model.NguoiNhan">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="LyDo">Lý do</label>
+                        <input type="text" id="ly-do" name="LyDo" value="@Model.LyDo">
+                    </div>
+
+                    <div id="idLink">
+                        <button type="submit">Cập nhật phiếu nhập</button>
+
+                        <div class="aDSPhieuNhap">
+                            <a href="~/QLTrangBi/NhapVao">Danh sách phiếu nhập</a>
+                        </div>
+                    </div>
+                </div> 
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="5ba0ec61bdbf47e38ed70912c811a394" Name="Diagram1" ZoomLevel="90">
+        <EntityTypeShape EntityType="QLTHIETBIModel.CAP_PHAT" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.CT_CAP_PHAT" Width="1.5" PointX="5.25" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.CT_KIEM_KE" Width="1.5" PointX="5.25" PointY="9.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.CT_SUA_CHUA" Width="1.5" PointX="10.25" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.CT_THU_HOI" Width="1.5" PointX="13.25" PointY="13.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.DON_VI" Width="1.5" PointX="0.75" PointY="9.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.HANG_SX" Width="1.5" PointX="5.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.KIEM_KE" Width="1.5" PointX="3" PointY="9.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.LOAI_THIET_BI" Width="1.5" PointX="5.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.NHOM_TB" Width="1.5" PointX="3.5" PointY="13.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.SUA_CHUA" Width="1.5" PointX="8" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.TANG" Width="1.5" PointX="5.75" PointY="16.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.THANH_LY" Width="1.5" PointX="10.25" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.THIET_BI" Width="1.5" PointX="8" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.THU_HOI" Width="1.5" PointX="3" PointY="17.875" IsExpanded="true" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CAP_PHAT_DON_VI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CAP_PHAT_DON_VI1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_CAP_PHAT_CAP_PHAT" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_CAP_PHAT_THIET_BI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_KIEM_KE_KIEM_KE" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_KIEM_KE_THIET_BI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_SUA_CHUA_SUA_CHUA" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_SUA_CHUA_THIET_BI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_THU_HOI_THIET_BI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_CT_THU_HOI_THU_HOI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_KIEM_KE_DON_VI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THIET_BI_DON_VI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THU_HOI_DON_VI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THU_HOI_DON_VI1" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THIET_BI_HANG_SX" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_LOAI_THIET_BI_NHOM_TB" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THIET_BI_LOAI_THIET_BI" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THIET_BI_TANG" ManuallyRouted="false" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_THANH_LY_THIET_BI" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.TAI_KHOAN" Width="1.5" PointX="2.625" PointY="3.25" />
+        <EntityTypeShape EntityType="QLTHIETBIModel.sysdiagram" Width="1.5" PointX="5.375" PointY="0.75" />
+        <AssociationConnector Association="QLTHIETBIModel.FK_TANG_LOAI_THIET_BI" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

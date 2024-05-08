@@ -1,0 +1,47 @@
+﻿@model DATA.Entity.TAI_KHOAN
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Them/CSS/DangNhap/Signup.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    @using (Html.BeginForm("Signup", "DangNhap"))
+    {
+        <div id="FatherKhung">
+            <div id="header">
+                <h1>SignUp</h1>
+            </div>
+            <div id="Khung">
+                <div id="Khung">
+                    <div class="SubKhung">
+                        <label for="UserName">Username</label>
+                        <input class="form-control" type="text" name="UserName">
+                    </div>
+
+                    <div class="SubKhung">
+                        <label for="PassWord">Password</label>
+                        <input class="form-control" type="password" name="PassWord">
+                    </div>
+
+                    <div class="SubKhung">
+                        <label for="Email">Email</label>
+                        <input class="form-control" type="email" name="Email">
+                    </div>
+
+                    <div>
+                        <button type="submit" class="button_Signup">SignUp</button>
+                    </div>
+
+                    <div id="DangKy">
+                        Do have an accout? <a href="~/DangNhap/Login">LognIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

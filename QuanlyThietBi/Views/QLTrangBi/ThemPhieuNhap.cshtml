@@ -1,0 +1,169 @@
+﻿@model DATA.Entity.TANG
+@{
+    ViewBag.Title = "ThemPhieuNhap";
+    Layout = "~/Share/layout.cshtml";
+    <link href="~/Them/CSS/QuanLy/ThemPhieuNhap.css" rel="stylesheet" />
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/ThemPhieuNhap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="~/Quanly/CapPhat">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="~/Quanly/ThuHoi">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="~/Quanly/ThanhLy">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="~/Quanly/SuaChua">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="~/Quanly/KiemKe">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label for="MaTang">Mã phiếu nhập:</label>
+                        <input type="number" id="ngay-lap-phieu" name="MaTang">
+                    </div>
+
+                    @*
+                        <div class="Nhapdiv">
+                            <label for="MaNhom">Nhóm thiết bị:</label>
+                            <select name="MaNhom" id="mySelect">
+                                @{
+                                    foreach (var item in db.NHOM_TB)
+                                    {
+                                        <option value="@item.MaNhom"> @item.TenNhom</option>
+
+                                    }
+                                }
+                            </select>
+                        </div>
+
+                        <div class="Nhapdiv">
+                            <label for="">Loại thiết bị:</label>
+                            <select id="LoaiThietBiSelect">
+                                @{
+                                    foreach (var tbloai in ketqua)
+                                    {
+                                         <option></option>
+                                    }
+                                }
+                            </select>
+                        </div>
+                    *@
+
+                    <div class="Nhapdiv">
+                        <label for="MaLoai">Loại thiết bị:</label>
+                        <select name="MaLoai" id="mySelect">
+                            @{
+                                foreach (var item in db.LOAI_THIET_BI)
+                                {
+                                    <option value="@item.MaLoai">@item.TenLoai</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="Soluong">Số lượng: </label>
+                        <input type="hidden" id="so-luong" name="SoLuong" value="0">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="TongTien">Tổng Tiền:</label> 
+                        <input type="hidden" id="tong-tien" name="TongTien" value="0">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NgayTang">Ngày Lập Phiếu:</label>
+                        <input type="date" id="ngay-lap-phieu" name="NgayTang">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiLapPhieu">Người Nhập Phiếu:</label>
+                        <input type="text" id="nguoi-nhap-phieu" name="NguoiLapPhieu">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiNhan">Người Phụ Trách:</label>
+                        <input type="text" id="nguoi-phu-trach" name="NguoiNhan">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="LyDo">Lý do</label>
+                        <input type="text" id="ly-do" name="LyDo">
+                    </div>
+
+                    <div id="idLink">
+                        <button type="submit">Lưu phiếu nhập</button>
+
+                        <div class="aDSPhieuNhap">
+                            <a href="~/QLTrangBi/NhapVao">Danh sách phiếu nhập</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="DanhSachNhap">
+                    <div id="divBang">
+                        <table id="BangDanhSachPhieuNhap">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã số phiếu</th>
+                                    <th>Ngày lập</th>
+                                    <th>Tổng tiền</th>
+                                    <th>Người lập phiếu</th>
+                                    <th>Người phụ trách</th>
+                                    <th colspan="4">Tool</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @{
+                                    var danhsach = db.TANGs.ToList();
+                                    danhsach.Reverse();
+                                    var danhsachPage = danhsach.Skip((1 - 1) * 3).Take(3).ToList();
+
+                                    int i = 1;
+                                }
+
+                                @foreach (var PhieuNhap in danhsachPage)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@PhieuNhap.MaTang</td>
+                                        <td>@PhieuNhap.NgayTang</td>
+                                        <td>@PhieuNhap.TongTien</td>
+                                        <td>@PhieuNhap.NguoiLapPhieu</td>
+                                        <td>@PhieuNhap.NguoiNhan</td>
+                                        <td>@Html.ActionLink("Xóa", "XoaPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
+                                        <td>@Html.ActionLink("Sửa", "SuaPhieuNhap", new { id = PhieuNhap.MaTang }, null)</td>
+                                        <td>@Html.ActionLink("Thêm thiết bị", "ThemThietBi", new { maTang = PhieuNhap.MaTang, maloai = PhieuNhap.MaLoai })</td>
+                                        <td>@Html.ActionLink("Chi tiết phiếu", "ChiTietPhieu", new { maTang = PhieuNhap.MaTang }, null)</td>
+                                    </tr>
+                                    i = i + 1;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

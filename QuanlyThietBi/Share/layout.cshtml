@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="../them/css/layout.css" rel="stylesheet" />
+    <title></title>
+</head>
+<body>
+    <div class="wrapper">
+        <div id="header">
+            <nav class="container">
+                <a href="" id="logo">
+                    <img src="../them/images/logo_mta_new.png" />
+                </a>
+                <ul id="main-menu">
+                    <li><a href="~/Home/Trangchu">Trang chủ</a></li>
+                    <li>
+                        <a href="">Hệ thống</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Tài Khoản</a></li>
+                            <li><a href="#">Trợ giúp</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#">Danh mục</a>
+                        <ul class="sub-menu">
+                            <li><a href="~/Home/DanhmucNhomTB">Nhóm thiết bị</a></li>
+                            <li><a href="#">Hãng sản xuất</a></li>
+                            <li><a href="#">Đơn vị</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">QL Trang bị</a>
+                        <ul class="sub-menu">
+                            <li><a href="">Nhập vào</a></li>
+                            <li><a href="#">Cấp phát</a></li>
+                            <li><a href="#">Thu hồi</a></li>
+                            <li><a href="#">Thanh lý</a></li>
+                            <li><a href="#">Sửa chữa</a></li>
+                            <li><a href="#">Kiểm kê</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="">Báo cáo - Thống kê</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Báo cáo</a></li>
+                            <li><a href="#">Thống kê</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+
+    <div>
+        @RenderBody()
+    </div>
+</body>
+</html>

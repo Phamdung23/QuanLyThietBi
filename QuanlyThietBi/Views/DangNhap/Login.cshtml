@@ -1,0 +1,41 @@
+﻿@model DATA.Entity.TAI_KHOAN
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="~/Them/CSS/DangNhap/Login.css" rel="stylesheet" />
+    <title>Document</title>
+</head>
+<body>
+    @using (Html.BeginForm("Login","DangNhap"))
+    {
+        <div id="FatherKhung">
+            <div id="header">
+                <h1>LogIn</h1>
+            </div>
+            <div id="Khung">
+                <div class="SubKhung">
+                    <label for="UserName">Username</label>
+                    <input class="form-control" type="text" name="UserName">
+                </div>
+
+                <div class="SubKhung">
+                    <label for="PassWord">Password</label>
+                    <input class="form-control" type="password" name="PassWord">
+                </div>
+
+                <p id="question">You forgot your password ?</p>
+
+                <div>
+                    <button type="submit" class="button_Login">LogIn</button>
+                </div>
+
+                <div id="DangKy">
+                    Don't have an account? <a href="~/DangNhap/Signup">Signup</a>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+</html>

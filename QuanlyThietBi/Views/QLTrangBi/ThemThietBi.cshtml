@@ -1,0 +1,84 @@
+﻿@model DATA.Entity.THIET_BI
+@{
+    ViewBag.Title = "ThemThietBi";
+    Layout = "~/Share/layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/ThemPhieuNhap.css" rel="stylesheet"/>
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="~/Quanly/CapPhat">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="~/Quanly/ThuHoi">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="~/Quanly/ThanhLy">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="~/Quanly/SuaChua">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="~/Quanly/KiemKe">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+                <div>
+                    <h2>THÊM THIẾT BỊ</h2>
+                    <h3>Mã phiếu: @Model.MaTang</h3>
+                </div>
+                <div id="ThemThietBi">
+                    <div class="Nhapdiv">
+                        <label for="MaTB">Mã thiết bị:</label>
+                        <input type="text" id="ma-tb" name="MaTB">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="TenTB">Tên thiết bị:</label>
+                        <input type="text" id="ten-tb" name="TenTB">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaHang">Mã hãng sản xuất:</label>
+                        <input type="text" id="hang-sx" name="MaHang">
+                    </div>
+
+
+                    <div class="Nhapdiv">
+                        <label for="TinhTrang">Tình Trạng</label>
+                        <input type="text" id="tinh-trang" name="TinhTrang">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="ThanhTien">Giá tiền:</label>
+                        <input type="text" id="thanh-tien" name="ThanhTien">
+                    </div>
+
+                    <div id="idLink">
+                        <button type="submit">Thêm thiết bị</button>
+
+                        <div class="aDSPhieuNhap">
+                            <a>@Html.ActionLink("Danh sách phiếu nhập", "NhapVao")</a>
+                        </div>
+
+                        <div class="aDSPhieuNhap">
+                            <a>@Html.ActionLink("Danh sách thiết bị của phiếu", "ChiTietPhieu", new { maTang = Model.MaTang }, null)</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+
+
+

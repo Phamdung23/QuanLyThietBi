@@ -1,0 +1,77 @@
+﻿@model List<DATA.Entity.TANG>
+@{
+    ViewBag.Title = "NhapVao";
+    Layout = "~/Share/layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/NhapVao.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        <div id="Quanlymenu">
+            <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+            <ul>
+                <li id="idNhapVao"><a href="#">Nhập vào</a></li>
+                <li id="idCapPhat"><a href="#">Cấp phát</a></li>
+                <li id="idThuHoi"><a href="#">Thu hồi</a></li>
+                <li id="idThanhly"><a href="#">Thanh lý</a></li>
+                <li id="idSuaChua"><a href="#">Sửa chữa</a></li>
+                <li id="idKiemKe"><a href="#">Kiểm kê</a></li>
+            </ul>
+        </div>
+
+        <div id="DanhSachNhap">
+
+            <div id="aAddPhieuNhap">
+                <a href="~/QLTrangBi/ThemPhieuNhap">Thêm phiếu nhập vào</a>
+            </div>
+            <div id="divBang">
+                <table id="BangDanhSachPhieuNhap">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã số phiếu</th>
+                            <th>Ngày lập</th>
+                            <th>Tổng tiền</th>
+                            <th>Người lập phiếu</th>
+                            <th>Người phụ trách</th>
+                            <th colspan="3">Tool</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            int i = 1;
+                        }
+                        @foreach (var PhieuNhap in Model)
+                        {
+                            <tr>
+                                <td>@i</td>
+                                <td>@PhieuNhap.MaTang</td>
+                                <td>@PhieuNhap.NgayTang</td>
+                                <td>@PhieuNhap.TongTien</td>
+                                <td>@PhieuNhap.NguoiLapPhieu</td>
+                                <td>@PhieuNhap.NguoiNhan</td>
+                                <td>@Html.ActionLink("Xóa", "XoaPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
+                                <td>@Html.ActionLink("Sửa", "SuaPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
+                                <td>@Html.ActionLink("Chi tiết phiếu", "ChiTietPhieu", new { maTang = PhieuNhap.MaTang }, null)</td>
+                            </tr>
+                            i = i + 1;
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34518.117
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "QuanlyThietBi", "QuanlyThietBi\QuanlyThietBi.csproj", "{C8873A24-6DDA-42A9-BFA7-C2BAA077998E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DATA", "DATA\DATA.csproj", "{2E70AF38-91B5-4273-BECD-245BB18FBB44}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C8873A24-6DDA-42A9-BFA7-C2BAA077998E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C8873A24-6DDA-42A9-BFA7-C2BAA077998E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C8873A24-6DDA-42A9-BFA7-C2BAA077998E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C8873A24-6DDA-42A9-BFA7-C2BAA077998E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2E70AF38-91B5-4273-BECD-245BB18FBB44}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2E70AF38-91B5-4273-BECD-245BB18FBB44}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2E70AF38-91B5-4273-BECD-245BB18FBB44}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2E70AF38-91B5-4273-BECD-245BB18FBB44}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {030A8EFD-27A5-41E3-A603-0FB4D1A953D3}
+	EndGlobalSection
+EndGlobal

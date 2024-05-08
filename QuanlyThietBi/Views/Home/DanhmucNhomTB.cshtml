@@ -1,0 +1,56 @@
+﻿@model List<DATA.Entity.NHOM_TB>
+@{
+    ViewBag.Title = "DanhmucNhomTB";
+    Layout = "~/Share/layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/Home/dmLayoutchung.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div id="DanhMuc">
+        <div id="NhomTB">
+            <h3>Thông tin Nhóm thiết bị</h3>
+            <div class="button">
+                <button>Thêm mới</button>
+                <button>Xóa</button>
+                <button>In danh sách</button>
+            </div>
+            <div class="search">
+                <input type="search" placeholder="Search...">
+                <button>Tìm kiếm</button>
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th id="stt">STT</th>
+                        <th>Mã thiết bị</th>
+                        <th>Nhóm thiết bị</th>
+                        <th id="note">Ghi chú</th>
+                        <th id="operation">Thao tác</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    @foreach (var nhomtb in Model)
+                    {
+                        <tr>
+                            <td>1</td>
+                            <td>@nhomtb.MaNhom</td>
+                            <td>@nhomtb.TenNhom</td>
+                            <td></td>
+                            <td></td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+</html>
+
