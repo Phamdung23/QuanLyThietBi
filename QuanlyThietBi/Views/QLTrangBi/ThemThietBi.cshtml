@@ -2,6 +2,27 @@
 @{
     ViewBag.Title = "ThemThietBi";
     Layout = "~/Share/layout.cshtml";
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities();
+
+    var tenLoai = "";
+    var tenkho = "";
+
+    var phieunhap = db.TANG.Find(Model.MaTang);
+    foreach (var loai in db.LOAI_THIET_BI.ToList())
+    {
+        if (loai.MaLoai == phieunhap.MaLoai)
+        {
+            tenLoai = loai.TenLoai;
+        }
+    }
+
+    foreach (var kho in db.KHO.ToList())
+    {
+        if (kho.MaKho == phieunhap.MaKho)
+        {
+            tenkho = kho.TenKho;
+        }
+    }
 }
 
 <!DOCTYPE html>
@@ -30,13 +51,13 @@
             </div>
 
             <div id="Main_NhapVao">
-                <div>
+                <div style="margin-left: 20px;">
                     <h2>THÊM THIẾT BỊ</h2>
                     <h3>Mã phiếu: @Model.MaTang</h3>
                 </div>
                 <div id="ThemThietBi">
                     <div class="Nhapdiv">
-                        <label for="MaTB">Mã thiết bị:</label>
+                        <label for="MaTB">Seri thiết bị: </label>
                         <input type="text" id="ma-tb" name="MaTB">
                     </div>
 
@@ -46,19 +67,39 @@
                     </div>
 
                     <div class="Nhapdiv">
-                        <label for="MaHang">Mã hãng sản xuất:</label>
-                        <input type="text" id="hang-sx" name="MaHang">
-                    </div>
 
-
-                    <div class="Nhapdiv">
-                        <label for="TinhTrang">Tình Trạng</label>
-                        <input type="text" id="tinh-trang" name="TinhTrang">
+                        <label for="MaLoai">Loại: </label>
+                        <label>@tenLoai</label>
+                        <input type="hidden" id="ma-loai" name="MaLoai" value="@phieunhap.MaLoai">
                     </div>
 
                     <div class="Nhapdiv">
-                        <label for="ThanhTien">Giá tiền:</label>
+                        <label for="MaHang">Hãng sản xuất: </label>
+                        <select name="MaKho" id="mySelect">
+                            @{
+                                foreach (var item in db.HANG_SX)
+                                {
+                                    <option value="@item.MaHang">@item.TenHang</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="ThanhTien">Giá tiền: </label>
                         <input type="text" id="thanh-tien" name="ThanhTien">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaKho">Nhập lưu trữ vào: </label>
+                        <label>@tenkho</label>
+                        <input type="hidden" id="ma-kho" name="MaKho" value="@phieunhap.MaKho">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="TinhTrang">Tình Trạng: </label>
+                        <label>Đang nhập</label>
+                        <input type="hidden" id="tinh-trang" name="TinhTrang" value="Đang nhập">
                     </div>
 
                     <div id="idLink">

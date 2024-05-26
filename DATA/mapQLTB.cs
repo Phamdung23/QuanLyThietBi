@@ -20,22 +20,22 @@ namespace DATA
         // Hàm lấy dữ liệu
         public List<TANG> LoaddsPhieuNhap()
         {
-            var phieunhap = db.TANGs.ToList(); 
+            var phieunhap = db.TANG.ToList(); 
             return phieunhap;  
         }
 
         public List<TANG> LoadPage(int page, int size)
         {
-            var danhssach = db.TANGs.ToList().Skip((page-1)*size).Take(size).ToList();
+            var danhssach = db.TANG.ToList().Skip((page-1)*size).Take(size).ToList();
             return danhssach; 
         }
 
         // Hàm thêm phiếu nhập 
         public void ThemPhieuNhap(TANG phieunhap)
         {
-            TANG phieutang = db.TANGs.Find(phieunhap.MaTang);
+            TANG phieutang = db.TANG.Find(phieunhap.MaTang);
             if(phieutang == null) {
-                db.TANGs.Add(phieunhap);
+                db.TANG.Add(phieunhap);
                 db.SaveChanges();
             }
         }
@@ -43,7 +43,7 @@ namespace DATA
         //  Hàm chi tiết phiếu nhập
         public TANG ChitietPhieu(int maTang)
         {
-            TANG phieunhap = db.TANGs.Find(maTang);
+            TANG phieunhap = db.TANG.Find(maTang);
             return phieunhap;
         }
 
@@ -60,10 +60,10 @@ namespace DATA
                 }
             }
 
-            var phieunhap = db.TANGs.Find(maTang); 
+            var phieunhap = db.TANG.Find(maTang); 
             if(phieunhap != null)
             {
-                db.TANGs.Remove(phieunhap);
+                db.TANG.Remove(phieunhap);
                 db.SaveChanges();
             }
         }
@@ -71,22 +71,24 @@ namespace DATA
         // Sửa phiếu nhập
         public TANG SuaPhieuNhap_get(int maTang)
         {
-            TANG phieunhap = db.TANGs.Find(maTang);
+            TANG phieunhap = db.TANG.Find(maTang);
             return phieunhap; 
         }
 
         public void SuaPN(TANG model)
         {
-            TANG phieunhap = db.TANGs.Find(model.MaTang); 
-            if(phieunhap != null)
+            TANG phieunhap = db.TANG.Find(model.MaTang);
+            if (phieunhap != null)
             {
                 var maphieu = phieunhap.MaTang; 
-                phieunhap.MaTang = model.MaTang;
+                phieunhap.MaTang = model.MaTang; 
                 phieunhap.NgayTang = model.NgayTang; 
                 phieunhap.LyDo = model.LyDo; 
                 phieunhap.NguoiLapPhieu = model.NguoiLapPhieu; 
                 phieunhap.NguoiNhan = model.NguoiNhan; 
                 phieunhap.MaLoai = model.MaLoai; 
+
+                db.SaveChanges();
 
                 if(maphieu != model.MaTang)
                 {
@@ -99,11 +101,28 @@ namespace DATA
             }
         }
 
+        // Duyệt phiếu nhập
+        public void Duyetphieunhap(int maTang)
+        {
+            TANG phieunhap = db.TANG.Find(maTang);
+            if(phieunhap != null)
+            {
+                phieunhap.TinhTrang = "Đã duyệt";
+                var devices = db.THIET_BI.Where(tb => tb.MaTang == maTang).ToList();
+
+                // Update the status of each device
+                foreach (var device in devices)
+                {
+                    device.TinhTrang = "Đã nhập";
+                }
+                db.SaveChanges();
+            } 
+        }
 
         // 2. Thiết bị
 
         // Hàm thêm một thiết bị
-        public THIET_BI Themthietbi_get(int Maphieu, int Maloai)
+        public THIET_BI Themthietbi_get(int Maphieu, int Maloai) 
         {
             var ThietBi = new THIET_BI();
             ThietBi.MaTang = Maphieu;
@@ -119,11 +138,11 @@ namespace DATA
             {
                 db.THIET_BI.Add(Model);
                 // Tìm phiếu nhập của thiết bị
-                TANG phieunhap = db.TANGs.Find(Model.MaTang);
+                TANG phieunhap = db.TANG.Find(Model.MaTang);
                 // Cập nhập tổng tiền cho phiếu nhập sau khi thêm một thiết bị
                 phieunhap.SoLuong = phieunhap.SoLuong + 1;
-                phieunhap.TongTien = phieunhap.TongTien + Model.ThanhTien;
-                //db.Entry(phieunhap).State = System.Data.Entity.EntityState.Modified;
+                phieunhap.TongTien = phieunhap.TongTien + Model.ThanhTien; 
+                //db.Entry(phieunhap).State = System.Data.Entity.EntityState.Modified; 
                 db.SaveChanges();
             }
         }
@@ -148,7 +167,6 @@ namespace DATA
             if(thietbi != null)
             {
                 thietbi.MaTB = model.MaTB; 
-                thietbi.NgayBDSD = model.NgayBDSD;
                 thietbi.MaHang = model.MaHang;
                 thietbi.TenTB = model.TenTB;
                 thietbi.ThanhTien = model.ThanhTien;
@@ -163,7 +181,7 @@ namespace DATA
             if(thietbi != null)
             {
                 // Tìm phiếu nhập của thiết bị
-                TANG phieunhap = db.TANGs.Find(thietbi.MaTang);
+                TANG phieunhap = db.TANG.Find(thietbi.MaTang);
                 // Cập nhập tổng tiền cho phiếu nhập sau khi thêm một thiết bị
                 phieunhap.SoLuong = phieunhap.SoLuong - 1;
                 phieunhap.TongTien = phieunhap.TongTien - thietbi.ThanhTien;

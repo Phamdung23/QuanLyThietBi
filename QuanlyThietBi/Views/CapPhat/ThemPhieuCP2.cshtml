@@ -1,0 +1,97 @@
+﻿@model DATA.Entity.CAP_PHAT
+@{
+    ViewBag.Title = "ThemPhieuCP2";
+    Layout = "~/Share/layout.cshtml";
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities();
+
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/CapPhat/ThemPhieuCP2.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label for="MaCP">Mã phiếu nhập: @Model.MaCP</label>
+                    </div>
+                    @{
+                        var tenLoai = db.LOAI_THIET_BI.Find(Model.MaLoai);
+                        if (tenLoai != null)
+                        {
+                            <div class="Nhapdiv">
+                                <label for="MaLoai">Loại thiết bị: @tenLoai.TenLoai</label>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="Nhapdiv">
+                                <label for="MaLoai">Loại thiết bị: Không có dữ liệu</label>
+                            </div>
+                        }
+                    }
+
+                    <div class="Nhapdiv">
+                        <label for="NgayCP">Ngày Lập Phiếu: @Model.NgayCP</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiLapPhieu">Người Nhập Phiếu: @Model.NguoiLapPhieu</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="Soluong">Số lượng: @Model.SoLuong</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaKho">Kho có loại thiết bị này: </label>
+                        <select name="MaKho" id="mySelect">
+                            @{
+                                // Sử dụng LINQ để inner join hai bảng Thiết Bị và Kho
+                                var khos = (from tb in db.THIET_BI
+                                            join k in db.KHO on tb.MaKho equals k.MaKho
+                                            where tb.MaLoai == Model.MaLoai
+                                            select new { k.MaKho, k.TenKho })
+                                           .Distinct()
+                                           .ToList(); 
+
+                                foreach (var kho in khos)
+                                {
+                                    <option value="@kho.MaKho">@kho.TenKho</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div id="idLink">
+                        <button type="submit">Thêm thiết bị</button>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

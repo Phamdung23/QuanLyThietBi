@@ -1,0 +1,64 @@
+﻿#Quanlymenu #idCapPhat {
+    background-color: rgb(193, 239, 210);
+}
+
+.QuanlyTB #DanhSachNhap {
+    display: inline-block;
+    margin-top: 23px;
+    width: 79%;
+    height: 86vh;
+    border-radius: 6px;
+    border: 1px solid #0b4a0a;
+}
+
+
+#BangDanhSachPhieuNhap {
+    height: 300px;
+    width: 100%;
+    border-collapse: collapse;
+    overflow-y: scroll;
+}
+
+tbody {
+    height: 200px;
+    overflow-y: scroll;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+
+/*--------------------------------Them moi danh sach nhap--------------------------*/
+
+#aAddPhieuNhap {
+    display: inline-block;
+    height: 35px;
+    width: 15%;
+    border: 1px solid #0b4a0a;
+    border-radius: 6px;
+    margin: 18px;
+}
+
+    #aAddPhieuNhap a {
+        color: #000000;
+        display: block;
+        text-decoration: none;
+        font-weight: 700;
+        text-align: center;
+        line-height: 35px;
+    }
+
+        #aAddPhieuNhap a:hover {
+            background-color: #57c74c7a;
+        }
+
+#BangDanhSachPhieuNhap tbody {
+    overflow-y: scroll;
+}

@@ -26,21 +26,17 @@ namespace DATA.Entity
         }
     
         public virtual DbSet<CAP_PHAT> CAP_PHAT { get; set; }
-        public virtual DbSet<CT_CAP_PHAT> CT_CAP_PHAT { get; set; }
-        public virtual DbSet<CT_KIEM_KE> CT_KIEM_KE { get; set; }
-        public virtual DbSet<CT_SUA_CHUA> CT_SUA_CHUA { get; set; }
-        public virtual DbSet<CT_THU_HOI> CT_THU_HOI { get; set; }
         public virtual DbSet<DON_VI> DON_VI { get; set; }
         public virtual DbSet<HANG_SX> HANG_SX { get; set; }
         public virtual DbSet<KIEM_KE> KIEM_KE { get; set; }
+        public virtual DbSet<KHO> KHO { get; set; }
         public virtual DbSet<LOAI_THIET_BI> LOAI_THIET_BI { get; set; }
-        public virtual DbSet<NHOM_TB> NHOM_TB { get; set; }
         public virtual DbSet<SUA_CHUA> SUA_CHUA { get; set; }
-        public virtual DbSet<TANG> TANGs { get; set; }
+        public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
+        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
+        public virtual DbSet<TANG> TANG { get; set; }
         public virtual DbSet<THANH_LY> THANH_LY { get; set; }
         public virtual DbSet<THIET_BI> THIET_BI { get; set; }
         public virtual DbSet<THU_HOI> THU_HOI { get; set; }
-        public virtual DbSet<TAI_KHOAN> TAI_KHOAN { get; set; }
-        public virtual DbSet<sysdiagram> sysdiagrams { get; set; }
     }
 }

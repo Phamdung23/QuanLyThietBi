@@ -32,17 +32,23 @@
             <div id="aAddPhieuNhap">
                 <a href="~/QLTrangBi/ThemPhieuNhap">Thêm phiếu nhập vào</a>
             </div>
+
+            <div id="aLichSuPhieuNhap">
+                <a href="~/QLTrangBi/LichSuPhieuNhap">Lịch sử phiếu nhập vào</a>
+            </div>
+
             <div id="divBang">
                 <table id="BangDanhSachPhieuNhap">
                     <thead>
                         <tr>
-                            <th>STT</th>
-                            <th>Mã số phiếu</th>
-                            <th>Ngày lập</th>
-                            <th>Tổng tiền</th>
-                            <th>Người lập phiếu</th>
-                            <th>Người phụ trách</th>
-                            <th colspan="3">Tool</th>
+                            <th>STT</th> 
+                            <th>Mã số phiếu</th> 
+                            <th>Ngày lập</th> 
+                            <th>Tổng tiền</th> 
+                            <th>Người lập phiếu</th> 
+                            <th>Người phụ trách</th> 
+                            <th>Tình trạng</th> 
+                            <th colspan="4">Tool</th> 
                         </tr>
                     </thead>
 
@@ -50,7 +56,7 @@
                         @{
                             int i = 1;
                         }
-                        @foreach (var PhieuNhap in Model)
+                        @foreach (var PhieuNhap in Model.Where(m=>m.TinhTrang=="Chờ duyệt"))
                         {
                             <tr>
                                 <td>@i</td>
@@ -59,9 +65,11 @@
                                 <td>@PhieuNhap.TongTien</td>
                                 <td>@PhieuNhap.NguoiLapPhieu</td>
                                 <td>@PhieuNhap.NguoiNhan</td>
+                                <td>@PhieuNhap.TinhTrang</td>
                                 <td>@Html.ActionLink("Xóa", "XoaPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
                                 <td>@Html.ActionLink("Sửa", "SuaPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
                                 <td>@Html.ActionLink("Chi tiết phiếu", "ChiTietPhieu", new { maTang = PhieuNhap.MaTang }, null)</td>
+                                <td>@Html.ActionLink("Duyệt", "DuyetPhieuNhap", new { maTang = PhieuNhap.MaTang }, null)</td>
                             </tr>
                             i = i + 1;
                         }

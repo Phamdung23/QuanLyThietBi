@@ -20,7 +20,5 @@ namespace DATA.Entity
         public string LyDo { get; set; }
         public string NguoiLapPhieu { get; set; }
         public string NguoiPhuTrach { get; set; }
-    
-        public virtual THIET_BI THIET_BI { get; set; }
     }
 }

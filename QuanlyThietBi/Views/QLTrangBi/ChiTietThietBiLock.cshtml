@@ -1,0 +1,103 @@
+﻿@model DATA.Entity.THIET_BI
+@{
+    ViewBag.Title = "ChiTietThietBiLock";
+    Layout = "~/Share/layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/ChiTietThietBi.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="~/Quanly/CapPhat">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="~/Quanly/ThuHoi">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="~/Quanly/ThanhLy">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="~/Quanly/SuaChua">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="~/Quanly/KiemKe">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+
+                <div>CHI TIẾT THIẾT BỊ</div>
+
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaTB">Mã thiết bị:</label>
+                        <label class="itemd">@Model.MaTB</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="TenTB">Tên thiết bị:</label>
+                        <label class="itemd">@Model.TenTB</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaHang">Mã hãng:</label>
+                        <label class="itemd">@Model.MaHang</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="TinhTrang">Tình trạng:</label>
+                        <label class="itemd">@Model.TinhTrang</label>
+                    </div>
+                    @*
+                        <div class="Nhapdiv">
+                            <label class="labelitem" for="NgayBDSD">Ngày bảo dưỡng:</label>
+                            <label class="itemd">@Model.Ng</label>
+                        </div>
+                    *@
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaDV">Mã đơn vị:</label>
+                        <label class="itemd">@Model.MaDV</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaLoai">Mã loại thiết bị:</label>
+                        <label class="itemd">@Model.MaLoai</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaTang">Mã phiếu nhập:</label>
+                        <label class="itemd">@Model.MaTang</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="ThanhTien">Giá tiền:</label>
+                        <label class="itemd">@Model.ThanhTien</label>
+                    </div>
+
+                    <div id="idLink">
+                        <div id="aDSPhieuNhap">
+                            <a href="~/QLTrangBi/NhapVao"> Danh Sach Phieu Nhap</a>
+                        </div>
+
+                        <div id="aDSPhieuNhap">
+                            <a>@Html.ActionLink("Danh sách lịch sử phiếu nhập", "LichSuPhieuNhap")</a>
+                        </div>
+
+                        <div id="aDSPhieuNhap">
+                            <a>@Html.ActionLink("Lịch sử phiếu nhập", "ChiTietPhieuLock", new {maTang = Model.MaTang}, null)</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

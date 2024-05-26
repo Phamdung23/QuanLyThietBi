@@ -1,0 +1,93 @@
+﻿@model DATA.Entity.CAP_PHAT
+@{
+    ViewBag.Title = "ThemPhieuCP";
+    Layout = "~/Share/layout.cshtml";
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/ThemPhieuNhap.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="">Kiểm kê</a></li>
+                </ul>
+            </div> 
+
+            <div id="Main_NhapVao">
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label for="MaCP">Mã phiếu nhập:</label>
+                        <input type="number" id="" name="MaCP">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaLoai">Loại thiết bị:</label>
+                        <select name="MaLoai" id="mySelect">
+                            @{
+                                foreach (var item in db.LOAI_THIET_BI)
+                                {
+                                    <option value="@item.MaLoai">@item.TenLoai</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NgayCP">Ngày Lập Phiếu:</label>
+                        <input type="date" id="ngay-lap-phieu" name="NgayCP">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="NguoiLapPhieu">Người Nhập Phiếu:</label>
+                        <input type="text" id="nguoi-nhap-phieu" name="NguoiLapPhieu">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="Soluong">Số lượng: </label>
+                        <input type="hidden" id="so-luong" name="SoLuong" value="0">
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label for="MaDV">Loại thiết bị:</label>
+                        <select name="MaDV" id="mySelect">
+                            @{
+                                foreach (var item in db.DON_VI)
+                                {
+                                    <option value="@item.MaDV">@item.TenDV</option>
+                                }
+                            }
+                        </select>
+                    </div>
+
+                    <div id="idLink">
+                        <button type="submit">Ok</button>
+
+                        <div class="aDSPhieuNhap">
+                            <a href="~/CapPhat/CapPhatvw">Danh sách phiếu cấp phát</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

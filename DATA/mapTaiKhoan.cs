@@ -27,6 +27,20 @@ namespace DATA
             }
         }
 
+        public TAI_KHOAN TimKiem(string username)
+        {
+            var user = db.TAI_KHOAN.Where(m => m.UserName == username).ToList();
+
+            if (user.Count > 0)
+            {
+                return user[0];
+            }
+            else
+            {
+                return null;
+            }
+        }
+
         // 2. Dang sach tai khoan
         public List<TAI_KHOAN> Danhsach()
         {
@@ -63,6 +77,40 @@ namespace DATA
             }
             catch
             {
+                return false;
+            }
+        }
+
+        // Cập nhật tài khoản
+        // 4. Cập nhật thông tin tài khoản
+        public bool CapNhat(TAI_KHOAN tk)
+        {
+            try
+            {
+                // Tìm kiếm tài khoản trong cơ sở dữ liệu
+                var existingUser = db.TAI_KHOAN.FirstOrDefault(u => u.UserName == tk.UserName);
+
+                // Nếu tài khoản tồn tại, cập nhật thông tin
+                if (existingUser != null)
+                {
+                    existingUser.UserName = tk.UserName; // Cập nhật tên đăng nhập
+                    existingUser.PassWord = tk.PassWord; // Cập nhật mật khẩu
+                    existingUser.Email = tk.Email; // Cập nhật email
+
+                    // Lưu thay đổi vào cơ sở dữ liệu
+                    db.SaveChanges();
+
+                    return true;
+                }
+                else
+                {
+                    // Không tìm thấy tài khoản để cập nhật
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                // Xử lý lỗi nếu có
                 return false;
             }
         }

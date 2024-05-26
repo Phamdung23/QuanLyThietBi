@@ -96,8 +96,15 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Global.asax" />
+    <Content Include="Them\CSS\CapPhat\CapPhatvw.css" />
+    <Content Include="Them\CSS\CapPhat\ThemPhieuCP2.css" />
     <Content Include="Them\CSS\DangNhap\Login.css" />
     <Content Include="Them\CSS\DangNhap\Signup.css" />
+    <Content Include="Them\CSS\DanhMuc\DanhMucMenu.css" />
+    <Content Include="Them\CSS\DanhMuc\DonVi.css" />
+    <Content Include="Them\CSS\DanhMuc\HangSanXuat.css" />
+    <Content Include="Them\CSS\DanhMuc\NhomThietBi.css" />
+    <Content Include="Them\CSS\HeThong\TaiKhoan.css" />
     <Content Include="Them\CSS\Home\dmLayoutchung.css" />
     <Content Include="Them\CSS\Home\dmNhomTB.css" />
     <Content Include="Them\CSS\layout.css" />
@@ -117,7 +124,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CapPhatController.cs" />
     <Compile Include="Controllers\DangNhapController.cs" />
+    <Compile Include="Controllers\DanhMucController.cs" />
+    <Compile Include="Controllers\HeThongController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\QLTrangBiController.cs" />
     <Compile Include="Global.asax.cs">
@@ -140,6 +150,22 @@
     <Content Include="Views\QLTrangBi\ChiTietThietBi.cshtml" />
     <Content Include="Views\QLTrangBi\SuaThietBi.cshtml" />
     <Content Include="Views\QLTrangBi\SuaPhieuNhap.cshtml" />
+    <Content Include="Views\DanhMuc\DanhMucMenu.cshtml" />
+    <Content Include="Views\DanhMuc\NhomThietBi.cshtml" />
+    <Content Include="Views\DanhMuc\HangSanXuat.cshtml" />
+    <Content Include="Views\DanhMuc\DonVi.cshtml" />
+    <Content Include="Views\QLTrangBi\LichSuPhieuNhap.cshtml" />
+    <Content Include="Views\QLTrangBi\ChiTietPhieuLock.cshtml" />
+    <Content Include="Views\QLTrangBi\ChiTietThietBiLock.cshtml" />
+    <Content Include="Views\CapPhat\CapPhatvw.cshtml" />
+    <Content Include="Views\CapPhat\ThemPhieuCP.cshtml" />
+    <Content Include="Views\CapPhat\ThemPhieuCP2.cshtml" />
+    <Content Include="Views\CapPhat\ThemPhieuCP3.cshtml" />
+    <Content Include="Views\HeThong\TaiKhoan.cshtml" />
+    <Content Include="Views\HeThong\ChangePasswordSuccess.cshtml" />
+    <Content Include="Views\HeThong\ChangePasswordFailed.cshtml" />
+    <Content Include="Views\HeThong\TroGiup.cshtml" />
+    <Content Include="Views\DanhMuc\ThemMoiLoaiTB.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

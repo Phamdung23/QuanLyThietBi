@@ -18,11 +18,8 @@ namespace DATA.Entity
         public DON_VI()
         {
             this.CAP_PHAT = new HashSet<CAP_PHAT>();
-            this.CAP_PHAT1 = new HashSet<CAP_PHAT>();
-            this.KIEM_KE = new HashSet<KIEM_KE>();
             this.THIET_BI = new HashSet<THIET_BI>();
             this.THU_HOI = new HashSet<THU_HOI>();
-            this.THU_HOI1 = new HashSet<THU_HOI>();
         }
     
         public int MaDV { get; set; }
@@ -32,14 +29,8 @@ namespace DATA.Entity
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<CAP_PHAT> CAP_PHAT { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CAP_PHAT> CAP_PHAT1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<KIEM_KE> KIEM_KE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THIET_BI> THIET_BI { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<THU_HOI> THU_HOI { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THU_HOI> THU_HOI1 { get; set; }
     }
 }

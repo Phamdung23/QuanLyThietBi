@@ -22,6 +22,7 @@ namespace QuanlyThietBi.Controllers
             var user = map.TimKiem(Modeltaikhoan.UserName, Modeltaikhoan.PassWord); 
             if(user != null)
             {
+                Session["Username"] = Modeltaikhoan.UserName;
                 return RedirectToAction("Trangchu", "Home");
             }
             return View();

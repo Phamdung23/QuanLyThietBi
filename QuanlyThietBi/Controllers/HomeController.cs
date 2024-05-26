@@ -21,9 +21,7 @@ namespace QuanlyThietBi.Controllers
 
         public ActionResult DanhmucNhomTB()
         {
-            var danhsach = new mapDanhMuc();
-            danhsach.DanhsachnhomTB(); 
-            return View(danhsach);  
+            return View();
         }
 
     }

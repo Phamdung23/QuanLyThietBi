@@ -1,0 +1,80 @@
+﻿@model List<DATA.Entity.CAP_PHAT>
+@{
+    ViewBag.Title = "CapPhatvw";
+    Layout = "~/Share/layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/CapPhat/CapPhatvw.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        <div id="Quanlymenu">
+            <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+            <ul>
+                <li id="idNhapVao"><a href="~/QLTrangBi/NhapVao">Nhập vào</a></li>
+                <li id="idCapPhat"><a href="#">Cấp phát</a></li>
+                <li id="idThuHoi"><a href="#">Thu hồi</a></li>
+                <li id="idThanhly"><a href="#">Thanh lý</a></li>
+                <li id="idSuaChua"><a href="#">Sửa chữa</a></li>
+                <li id="idKiemKe"><a href="#">Kiểm kê</a></li>
+            </ul>
+        </div>
+
+        <div id="DanhSachNhap">
+            <div id="aAddPhieuNhap">
+                <a href="~/CapPhat/ThemPhieuCP">Thêm phiếu cấp phát</a>
+            </div>
+
+            <div id="divBang">
+                <table id="BangDanhSachPhieuNhap">
+                    <thead>
+                        <tr>
+                            <th>STT</th>
+                            <th>Mã số phiếu</th>
+                            <th>Ngày lập</th>
+                            <th>Người lập phiếu</th>
+                            <th>Kho cấp phát</th>
+                            <th>Đơn vị nhận</th>
+                            <th colspan="1">Tool</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        @{
+                            if (Model != null)
+                            {
+                                int i = 1;
+                                foreach (var PCP in Model)
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@PCP.MaCP</td>
+                                        <td>@PCP.NgayCP</td>
+                                        <td>@PCP.NguoiLapPhieu</td>
+                                        <td>@PCP.MaKho</td>
+                                        <td>@PCP.MaDV</td>
+                                        <td>@Html.ActionLink("Chi tiết phiếu nhập", "", new { maCP = PCP.MaCP }, null)</td>
+                                    </tr>
+                                    i = i + 1;
+                                }
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+
+
+
+

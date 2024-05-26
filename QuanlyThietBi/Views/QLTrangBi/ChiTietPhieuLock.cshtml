@@ -1,0 +1,163 @@
+﻿@model DATA.Entity.TANG
+@{
+    ViewBag.Title = "ChiTietPhieuLock";
+    Layout = "~/Share/layout.cshtml";
+    DATA.Entity.QLTHIETBIEntities db = new DATA.Entity.QLTHIETBIEntities();
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <link href="~/Them/CSS/QuanLy/QuanLychung.css" rel="stylesheet" />
+    <link href="~/Them/CSS/QuanLy/ChiTietPhieu.css" rel="stylesheet" />
+    <title>@ViewBag.Title</title>
+</head>
+<body>
+    <div class="QuanlyTB">
+        @using (Html.BeginForm())
+        {
+            <div id="Quanlymenu">
+                <h3 class="TieuDe">QUẢN LÝ TRANG BỊ</h3>
+                <ul>
+                    <li id="idNhapVao"><a href="~/Quanly/DSPhieuNhapVao">Nhập vào</a></li>
+                    <li id="idCapPhat"><a href="~/Quanly/CapPhat">Cấp phát</a></li>
+                    <li id="idThuHoi"><a href="~/Quanly/ThuHoi">Thu hồi</a></li>
+                    <li id="idThanhly"><a href="~/Quanly/ThanhLy">Thanh lý</a></li>
+                    <li id="idSuaChua"><a href="~/Quanly/SuaChua">Sửa chữa</a></li>
+                    <li id="idKiemKe"><a href="~/Quanly/KiemKe">Kiểm kê</a></li>
+                </ul>
+            </div>
+
+            <div id="Main_NhapVao">
+
+                <div>CHI TIẾT PHIẾU NHẬP</div>
+
+                <div id="ThemPhieuNhap">
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="MaTang">Mã phiếu nhập: </label>
+                        <label class="itemd">@Model.MaTang</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        @{
+                            var tenloai = "";
+                            foreach (var item in db.LOAI_THIET_BI.ToList())
+                            {
+                                if (Model.MaLoai == item.MaLoai)
+                                {
+                                    tenloai = item.TenLoai;
+                                }
+                            }
+                        }
+                        <label class="labelitem" for="">Loại thiết bị</label>
+                        <label class="itemd">@tenloai</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="SoLuong">Số lượng thiết bị</label>
+                        <label class="itemd">@Model.SoLuong</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="TongTien">Tổng Tiền:</label>
+                        <label class="itemd">@Model.TongTien</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="NgayTang">Ngày Lập Phiếu:</label>
+                        <label>@Model.NgayTang</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="NguoiLapPhieu">Người Nhập Phiếu:</label>
+                        <label class="itemd">@Model.NguoiLapPhieu</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="NguoiNhan">Người duyệt: </label>
+                        <label class="itemd">@Model.NguoiNhan</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        @{
+                            var tenKho = "";
+                            foreach (var store in db.KHO)
+                            {
+                                if (Model.MaKho == store.MaKho)
+                                {
+                                    tenKho = store.TenKho;
+                                }
+                            }
+                        }
+                        <label class="labelitem" for="MaKho">Nhập lưu trữ vào:</label>
+                        <label class="itemd">@tenKho</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="TinhTrang">Tình trạng:</label>
+                        <label class="itemd">@Model.TinhTrang</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="LyDo">Lý do:</label>
+                        <label class="itemd">@Model.LyDo</label>
+                    </div>
+
+                    <div id="idLink">
+                        <div id="aDSPhieuNhap">
+                            <a href="~/QLTrangBi/NhapVao"> Danh Sach Phieu Nhap</a>
+                        </div>
+
+                        <div id="aDSPhieuNhap">
+                            <a>@Html.ActionLink("Danh sách lịch sử phiếu", "LichSuPhieuNhap")</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="DanhSachNhap">
+                    <div id="divBang">
+                        <h3>DANH SÁCH THIẾT BỊ CỦA PHIẾU</h3>
+                        <table id="BangDanhSachPhieuNhap">
+                            <thead>
+                                <tr>
+                                    <th>STT</th>
+                                    <th>Mã thiết bị</th>
+                                    <th>Tên thiết bị</th>
+                                    <th>Hãng sản xuất</th>
+                                    <th>Tình trạng</th>
+                                    <th>Giá tiền</th>
+                                    <th colspan="4">Tool</th>
+                                </tr>
+                            </thead>
+
+                            <tbody>
+                                @{
+                                    int i = 1;
+                                }
+
+                                @foreach (var thietbi in db.THIET_BI.Where(m => m.MaTang == Model.MaTang))
+                                {
+                                    <tr>
+                                        <td>@i</td>
+                                        <td>@thietbi.MaTB</td>
+                                        <td>@thietbi.TenTB</td>
+                                        <td>@thietbi.MaHang</td>
+                                        <td>@thietbi.TinhTrang</td>
+                                        <td>@thietbi.ThanhTien</td> 
+                                        <td>@Html.ActionLink("Chi tiết thiết bị", "ChiTietThietBiLock", new { maTB = thietbi.MaTB }, null)</td>
+                                    </tr>
+                                    i = i + 1;
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</body>
+</html>
+
+

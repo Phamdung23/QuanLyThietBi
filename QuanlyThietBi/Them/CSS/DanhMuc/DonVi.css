@@ -1,0 +1,29 @@
+﻿#DanhMucmenu #idDonVi {
+    background-color: rgb(193, 239, 210);
+}
+
+.DanhMucTB #Main_NhomThietBi {
+    display: inline-block;
+    margin-top: 23px;
+    border-radius: 6px;
+    box-shadow: 1px #9feda5;
+    width: 79%;
+    height: 86vh;
+}
+
+#Main_NhomThietBi #nav-NhomThietBi {
+    display: inline-block;
+    width: 100%;
+    height: 28%;
+    border: 1px solid #127909;
+    border-radius: 6px;
+}
+
+#Main_NhomThietBi #BangNhomThietBi {
+    margin-top: 11px;
+    display: inline-block;
+    width: 100%;
+    height: 69%;
+    border: 1px solid #127909;
+    border-radius: 6px;
+}

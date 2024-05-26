@@ -14,39 +14,22 @@ namespace DATA.Entity
     
     public partial class THIET_BI
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public THIET_BI()
-        {
-            this.CT_CAP_PHAT = new HashSet<CT_CAP_PHAT>();
-            this.CT_KIEM_KE = new HashSet<CT_KIEM_KE>();
-            this.CT_SUA_CHUA = new HashSet<CT_SUA_CHUA>();
-            this.CT_THU_HOI = new HashSet<CT_THU_HOI>();
-            this.THANH_LY = new HashSet<THANH_LY>();
-        }
-    
         public int MaTB { get; set; }
         public string TenTB { get; set; }
         public Nullable<int> MaHang { get; set; }
         public string TinhTrang { get; set; }
-        public Nullable<System.DateTime> NgayBDSD { get; set; }
         public Nullable<int> MaDV { get; set; }
         public Nullable<int> MaLoai { get; set; }
         public Nullable<int> MaTang { get; set; }
         public Nullable<int> ThanhTien { get; set; }
+        public Nullable<int> MaTH { get; set; }
+        public Nullable<int> MaCP { get; set; }
+        public Nullable<int> MaKho { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_CAP_PHAT> CT_CAP_PHAT { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_KIEM_KE> CT_KIEM_KE { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_SUA_CHUA> CT_SUA_CHUA { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_THU_HOI> CT_THU_HOI { get; set; }
         public virtual DON_VI DON_VI { get; set; }
         public virtual HANG_SX HANG_SX { get; set; }
+        public virtual KHO KHO { get; set; }
         public virtual LOAI_THIET_BI LOAI_THIET_BI { get; set; }
         public virtual TANG TANG { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<THANH_LY> THANH_LY { get; set; }
     }
 }

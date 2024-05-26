@@ -4,6 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
+using System.Security.Permissions;
 using System.Web;
 using System.Web.Mvc;
 
@@ -14,6 +15,13 @@ namespace QuanlyThietBi.Controllers
         // 1. Phiếu nhập
         // Danh sách phiếu nhập 
         public ActionResult NhapVao()
+        {
+            var map = new mapQLTB();
+            var data = map.LoaddsPhieuNhap();
+            return View(data);
+        }
+
+        public ActionResult LichSuPhieuNhap()
         {
             var map = new mapQLTB();
             var data = map.LoaddsPhieuNhap();
@@ -42,12 +50,32 @@ namespace QuanlyThietBi.Controllers
             return View(model);
         }
 
+        public ActionResult ChiTietPhieuLock(int maTang)
+        {
+            var map = new mapQLTB();
+            var model = map.ChitietPhieu(maTang);
+            return View(model);
+        }
+
         // Xóa phiếu nhập
         public ActionResult XoaPhieuNhap(int maTang)
         {
             var map = new mapQLTB();
             map.XoaPhieuNhap(maTang);
             return RedirectToAction("NhapVao"); 
+        }
+
+        public ActionResult XoaPhieuNhap_LichSu(int maTang)
+        {
+            var map = new mapQLTB();
+            map.XoaPhieuNhap(maTang);
+            return RedirectToAction("LichSuPhieuNhap");
+        }
+        public ActionResult XoaPhieuNhap_ThemPhieuNhap(int maTang)
+        {
+            var map = new mapQLTB();
+            map.XoaPhieuNhap(maTang);
+            return RedirectToAction("ThemPhieuNhap");
         }
 
         // Sửa phiếu nhập 
@@ -63,9 +91,16 @@ namespace QuanlyThietBi.Controllers
         {
             var map = new mapQLTB(); 
             map.SuaPN(model);
-            return View(model); 
+            return RedirectToAction("NhapVao");
         }
 
+        // Duyệt phiếu nhập
+        public ActionResult DuyetPhieuNhap(int maTang)
+        {
+            var map = new mapQLTB();
+            map.Duyetphieunhap(maTang);
+            return RedirectToAction("NhapVao"); 
+        }
 
         // 2. Thiết bị
         // Thêm thiết bị 
@@ -80,7 +115,7 @@ namespace QuanlyThietBi.Controllers
         public ActionResult ThemThietBi(THIET_BI Model)
         {
             var map = new mapQLTB ();
-            map.ThemThietBi(Model);
+            map.ThemThietBi(Model);    
             return View(Model); 
         }
         
@@ -90,6 +125,13 @@ namespace QuanlyThietBi.Controllers
             var map = new mapQLTB();
             var model = map.ChitietTB(maTB);
             return View(model); 
+        }
+
+        public ActionResult ChiTietThietBiLock(int maTB)
+        {
+            var map = new mapQLTB();
+            var model = map.ChitietTB(maTB);
+            return View(model);
         }
 
         // Xóa thiết bị 

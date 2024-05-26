@@ -14,21 +14,14 @@ namespace DATA.Entity
     
     public partial class CAP_PHAT
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public CAP_PHAT()
-        {
-            this.CT_CAP_PHAT = new HashSet<CT_CAP_PHAT>();
-        }
-    
         public int MaCP { get; set; }
         public Nullable<System.DateTime> NgayCP { get; set; }
         public string NguoiLapPhieu { get; set; }
-        public Nullable<int> DVGiao { get; set; }
-        public Nullable<int> DVNhan { get; set; }
+        public Nullable<int> MaKho { get; set; }
+        public Nullable<int> MaDV { get; set; }
+        public Nullable<int> MaLoai { get; set; }
+        public Nullable<int> SoLuong { get; set; }
     
         public virtual DON_VI DON_VI { get; set; }
-        public virtual DON_VI DON_VI1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_CAP_PHAT> CT_CAP_PHAT { get; set; }
     }
 }

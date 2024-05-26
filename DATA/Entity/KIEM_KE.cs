@@ -14,20 +14,10 @@ namespace DATA.Entity
     
     public partial class KIEM_KE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public KIEM_KE()
-        {
-            this.CT_KIEM_KE = new HashSet<CT_KIEM_KE>();
-        }
-    
         public int MaKK { get; set; }
         public Nullable<System.DateTime> NgayKK { get; set; }
         public string LyDo { get; set; }
         public string NguoiLapPhieu { get; set; }
         public Nullable<int> DonVi { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_KIEM_KE> CT_KIEM_KE { get; set; }
-        public virtual DON_VI DON_VI { get; set; }
     }
 }

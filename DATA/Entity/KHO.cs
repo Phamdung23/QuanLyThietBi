@@ -12,18 +12,23 @@ namespace DATA.Entity
     using System;
     using System.Collections.Generic;
     
-    public partial class NHOM_TB
+    public partial class KHO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public NHOM_TB()
+        public KHO()
         {
-            this.LOAI_THIET_BI = new HashSet<LOAI_THIET_BI>();
+            this.TANG = new HashSet<TANG>();
+            this.THIET_BI = new HashSet<THIET_BI>();
         }
     
-        public int MaNhom { get; set; }
-        public string TenNhom { get; set; }
+        public int MaKho { get; set; }
+        public string TenKho { get; set; }
+        public string Diadiem { get; set; }
+        public string SDT { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<LOAI_THIET_BI> LOAI_THIET_BI { get; set; }
+        public virtual ICollection<TANG> TANG { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<THIET_BI> THIET_BI { get; set; }
     }
 }

@@ -36,7 +36,7 @@
 
                 <div id="ThemPhieuNhap">
                     <div class="Nhapdiv">
-                        <label class="labelitem" for="MaTang">Số Phiếu:</label>
+                        <label class="labelitem" for="MaTang">Mã phiếu nhập: </label>
                         <label class="itemd">@Model.MaTang</label>
                     </div>
 
@@ -51,7 +51,7 @@
                                 }
                             }
                         }
-                        <label class="labelitem" for="">Tên loại:</label>
+                        <label class="labelitem" for="">Loại thiết bị</label>
                         <label class="itemd">@tenloai</label>
                     </div>
 
@@ -76,8 +76,28 @@
                     </div>
 
                     <div class="Nhapdiv">
-                        <label class="labelitem" for="NguoiNhan">Người Phụ Trách:</label>
+                        <label class="labelitem" for="NguoiNhan">Người duyệt: </label>
                         <label class="itemd">@Model.NguoiNhan</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        @{
+                            var tenKho = "";
+                            foreach (var store in db.KHO)
+                            {
+                                if (Model.MaKho == store.MaKho)
+                                {
+                                    tenKho = store.TenKho;
+                                }
+                            }
+                        }
+                        <label class="labelitem" for="MaKho">Nhập lưu trữ vào:</label>
+                        <label class="itemd">@tenKho</label>
+                    </div>
+
+                    <div class="Nhapdiv">
+                        <label class="labelitem" for="TinhTrang">Tình trạng:</label>
+                        <label class="itemd">@Model.TinhTrang</label>  
                     </div>
 
                     <div class="Nhapdiv">
@@ -91,7 +111,7 @@
                         </div>
 
                         <div id="aDSPhieuNhap">
-                            <a>@Html.ActionLink("Thêm thiết bị", "ThemThietBi", new { maTang = Model.MaTang, maloai = Model.MaLoai})</a>
+                            <a>@Html.ActionLink("Thêm thiết bị", "ThemThietBi", new { maTang = Model.MaTang, maloai = Model.MaLoai })</a>
                         </div>
                     </div>
                 </div>
@@ -109,7 +129,7 @@
                                     <th>Tình trạng</th>
                                     <th>Giá tiền</th>
                                     <th colspan="4">Tool</th>
-                                </tr>
+                                </tr> 
                             </thead>
 
                             <tbody>

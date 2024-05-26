@@ -14,17 +14,8 @@ namespace DATA.Entity
     
     public partial class SUA_CHUA
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public SUA_CHUA()
-        {
-            this.CT_SUA_CHUA = new HashSet<CT_SUA_CHUA>();
-        }
-    
         public int MaSC { get; set; }
         public Nullable<System.DateTime> NgaySC { get; set; }
         public string NguoiLapPhieu { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<CT_SUA_CHUA> CT_SUA_CHUA { get; set; }
     }
 }
