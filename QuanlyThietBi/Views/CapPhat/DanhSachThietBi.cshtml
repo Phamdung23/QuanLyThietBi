@@ -1,0 +1,140 @@
+﻿@model List<DATA.Entity.THIET_BI>
+@{
+    ViewBag.Title = "DanhSachThietBi";
+    Layout = "~/Share/layout.cshtml";
+    int maCP = ViewBag.MaCP;
+    int maLoai = ViewBag.MaLoai;
+    int maKho = ViewBag.MaKho;
+    int maDV = ViewBag.MaDV;
+}
+
+@*
+<h2>Danh Sách Thiết Bị Trong Kho</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Mã Thiết Bị</th>
+            <th>Tên Thiết Bị</th>
+            <th>Loại Thiết Bị</th>
+            <th>Hành Động</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var device in Model)
+        {
+            <tr>
+                <td>@device.MaTB</td>
+                <td>@device.TenTB</td>
+                <td>@device.MaLoai</td>
+                <td>
+                    @using (Html.BeginForm("CapPhatThietBi", "CapPhat", FormMethod.Post))
+                    {
+                        @Html.Hidden("maTB", device.MaTB)
+                        @Html.Hidden("maCP", maCP)
+                        @Html.Hidden("maDV", maDV) <!-- MaDV có thể được xác định tùy theo logic của bạn -->
+                        @Html.Hidden("maKho", maKho)
+                        <button type="submit" class="btn btn-primary">Cấp Phát</button>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+*@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+            .table th, .table td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            .table th {
+                background-color: #f2f2f2;
+                color: #333;
+            }
+
+            .table tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+
+            .table tr:hover {
+                background-color: #f1f1f1;
+            }
+
+        .btn {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 8px 16px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+
+            .btn:hover {
+                background-color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>Danh Sách Thiết Bị Trong Kho</h2>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Mã Thiết Bị</th>
+                <th>Tên Thiết Bị</th>
+                <th>Loại Thiết Bị</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var device in Model.Where(m=>m.TinhTrang.Equals("Đã nhập")))
+            {
+                <tr>
+                    <td>@device.MaTB</td>
+                    <td>@device.TenTB</td>
+                    <td>@device.MaLoai</td>
+                    <td>
+                        @using (Html.BeginForm("CapPhatThietBi", "CapPhat", FormMethod.Post))
+                        {
+                            @Html.Hidden("maTB", device.MaTB)
+                            @Html.Hidden("maCP", maCP)
+                            @Html.Hidden("maDV", maDV) <!-- MaDV có thể được xác định tùy theo logic của bạn -->
+                            @Html.Hidden("maKho", maKho)
+                            <button type="submit" class="btn btn-primary">Cấp Phát</button>
+                        }
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>
+

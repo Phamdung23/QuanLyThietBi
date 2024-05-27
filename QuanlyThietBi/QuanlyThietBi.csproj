@@ -176,6 +176,8 @@
     <Content Include="Views\DanhMuc\SreachLoaiThietBi.cshtml" />
     <Content Include="Views\DanhMuc\ThemMoiDonVi.cshtml" />
     <Content Include="Views\DanhMuc\ThemMoiHSX.cshtml" />
+    <Content Include="Views\CapPhat\DanhSachCapPhat.cshtml" />
+    <Content Include="Views\CapPhat\DanhSachThietBi.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

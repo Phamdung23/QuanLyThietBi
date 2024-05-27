@@ -23,5 +23,6 @@ namespace DATA.Entity
         public Nullable<int> SoLuong { get; set; }
     
         public virtual DON_VI DON_VI { get; set; }
+        public int MaTB { get; internal set; }
     }
 }

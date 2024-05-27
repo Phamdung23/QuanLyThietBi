@@ -21,8 +21,14 @@ namespace QuanlyThietBi.Controllers
             var map = new mapDanhMuc();
             var data = map.DSLoaiThietBi();
             return View(data);
-        }              
+        }      
         
+        public ActionResult ThietBi_NTB(int maLoai)
+        {
+
+            return View();
+        } 
+
         public ActionResult ThemMoiLoaiTB()
         {
             return View();

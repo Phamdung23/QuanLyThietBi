@@ -28,28 +28,59 @@ namespace QuanlyThietBi.Controllers
         {
             var map = new mapCapPh();
             CAP_PHAT model = map.ThemPhieuCP(Model);
-            return RedirectToAction("ThemPhieuCP2", new { maCP = model.MaCP });  
+            return RedirectToAction("DanhSachCapPhat", new { maCP = model.MaCP , maLoai = model.MaLoai, maDV = model.MaDV});  
+        }
+
+        private mapCapPh map = new mapCapPh();
+
+        // Hiển thị danh sách các kho chứa loại thiết bị
+        public ActionResult DanhSachCapPhat(int maCP, int maLoai, int maDV)
+        {
+            var khoList = map.GetKhoByLoai(maLoai);
+            ViewBag.MaCP = maCP;
+            ViewBag.MaLoai = maLoai;
+            ViewBag.MaDV = maDV;
+            return View(khoList);
+        }
+
+        // Hiển thị danh sách thiết bị trong kho được chọn
+        public ActionResult DanhSachThietBi(int maCP, int maLoai, int maKho, int maDV)
+        {
+            var thietBiList = map.GetThietBiByKho(maLoai, maKho);
+            ViewBag.MaCP = maCP;
+            ViewBag.MaLoai = maLoai;
+            ViewBag.MaKho = maKho;
+            ViewBag.MaDV = maDV;
+            return View(thietBiList);
+        }
+
+        // Xử lý việc cấp phát thiết bị
+        [HttpPost]
+        public ActionResult CapPhatThietBi(int maTB, int maCP, int maDV, int maKho)
+        {
+            map.CapPhatThietBi(maTB, maCP, maDV, maKho);
+            //return RedirectToAction("DanhSachThietBi", new { maCP = maCP, maLoai = ViewBag.MaLoai, maKho = maKho, maDV = maDV });
+            return RedirectToAction("CapPhatvw");
         }
 
         /*
-        public ActionResult ThemPhieuCP2(int maCP)   
-        {
-            var map = new mapCapPh();    
-            var model = map.sreach(maCP);  
+        public ActionResult ThemPhieuCP2()   
+        {  
             return View();  
         }
 
-        */
 
         [HttpPost]
-        public ActionResult ThemPhieuCP2(int maCP)
+        public ActionResult ThemPhieuCP2(CAP_PHAT Model)
         {
             var map = new mapCapPh();
-            var model = map.sreach(maCP);
+            var model = map.sreach(Model.MaCP);
             if (model != null)
-            {
-                return RedirectToAction("ThemPhieuCP3", new { m = model });
-            }
+                if (model != null)
+                {
+                    model.MaKho = Model.MaKho;
+                    return RedirectToAction("ThemPhieuCP3", new { m = model });
+                }
             return View();
         }
 
@@ -57,12 +88,6 @@ namespace QuanlyThietBi.Controllers
         {
             return View(model);     
         }
-
-        public ActionResult CapPhatThietBi(int maTB, int maCP, int maDV)
-        {
-            var map = new mapCapPh();
-            map.CapPhat(maTB, maCP, maDV);
-            return RedirectToAction("ThemPhieuCP3", new { maCP = maCP });
-        }
+        */
     }
 }

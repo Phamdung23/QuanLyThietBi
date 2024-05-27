@@ -1,0 +1,59 @@
+﻿@model List<DATA.Entity.KHO>
+@{
+    ViewBag.Title = "DanhSachCapPhat";
+    Layout = "~/Share/layout.cshtml";
+    int maCP = ViewBag.MaCP;
+    int maLoai = ViewBag.MaLoai;
+    int maDV = ViewBag.MaDV;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@ViewBag.Title</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        h2 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007bff;
+            font-weight: bold;
+        }
+
+            a:hover {
+                text-decoration: underline;
+                color: #0056b3;
+            }
+    </style>
+</head>
+<body>
+    <h2>Danh Sách Kho Chứa Loại Thiết Bị</h2>
+
+    <ul>
+        @foreach (var kho in Model)
+        {
+            <li>
+                @Html.ActionLink(kho.TenKho, "DanhSachThietBi", new { maCP = maCP, maLoai = maLoai, maKho = kho.MaKho, maDV = maDV })
+            </li>
+        }
+    </ul>
+</body>
+</html>

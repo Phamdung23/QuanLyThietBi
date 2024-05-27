@@ -94,6 +94,7 @@
                     <th>Mã Loại Thiết Bị</th>
                     <th>Tên Loại Thiết Bị</th>
                     <th>Đơn vị tính</th>
+                    <th>Tool</th>
                 </tr>
             </thead>
             <tbody>
@@ -106,6 +107,7 @@
                                     <td>@item.MaLoai</td>
                                     <td>@item.TenLoai</td>
                                     <td>@item.DVT</td>
+                                    <td>@Html.ActionLink("Danh sach thiet bi","ThietBi_NTB", new {maLoai = item.MaLoai})</td>
                                 </tr>
                         }
                     }
