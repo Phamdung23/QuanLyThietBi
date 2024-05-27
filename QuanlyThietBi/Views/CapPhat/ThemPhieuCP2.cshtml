@@ -34,15 +34,17 @@
             <div id="Main_NhapVao">
                 <div id="ThemPhieuNhap">
                     <div class="Nhapdiv">
-                        <label for="MaCP">Mã phiếu nhập: @Model.MaCP</label>
+                        <label for="MaCP">Mã phiếu cấp phát: @Model.MaCP</label>
+                        <input type="hidden" name="@Model.MaCP" />
                     </div>
                     @{
                         var tenLoai = db.LOAI_THIET_BI.Find(Model.MaLoai);
                         if (tenLoai != null)
                         {
-                            <div class="Nhapdiv">
-                                <label for="MaLoai">Loại thiết bị: @tenLoai.TenLoai</label>
-                            </div>
+                                        <div class="Nhapdiv">
+                                            <label for="MaLoai">Loại thiết bị: @tenLoai.TenLoai</label>
+                                            <input type="hidden" name="@Model.MaLoai" />
+                                        </div>
                         }
                         else
                         {
@@ -52,20 +54,23 @@
                         }
                     }
 
-                    <div class="Nhapdiv">
-                        <label for="NgayCP">Ngày Lập Phiếu: @Model.NgayCP</label>
-                    </div>
+                <div class="Nhapdiv">
+                    <label for="NgayCP">Ngày Lập Phiếu: @Model.NgayCP</label>
+                    <input type="hidden" name="@Model.NgayCP" />
+                </div>
 
-                    <div class="Nhapdiv">
-                        <label for="NguoiLapPhieu">Người Nhập Phiếu: @Model.NguoiLapPhieu</label>
-                    </div>
+                <div class="Nhapdiv">
+                    <label for="NguoiLapPhieu">Người Nhập Phiếu: @Model.NguoiLapPhieu</label>
+                    <input type="hidden" name="@Model.NguoiLapPhieu" />
+                </div>
 
                     <div class="Nhapdiv">
                         <label for="Soluong">Số lượng: @Model.SoLuong</label>
+                        <input type="hidden" name="@Model.SoLuong" />
                     </div>
 
                     <div class="Nhapdiv">
-                        <label for="MaKho">Kho có loại thiết bị này: </label>
+                        <label for="MaKho">Kho có loại thiết bị này: </label> 
                         <select name="MaKho" id="mySelect">
                             @{
                                 // Sử dụng LINQ để inner join hai bảng Thiết Bị và Kho

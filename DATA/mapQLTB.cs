@@ -50,7 +50,7 @@ namespace DATA
         // Xóa phiếu nhập
         public void XoaPhieuNhap(int maTang)
         {
-            var danhsach = db.THIET_BI.Where(m => m.MaTang == maTang).ToList();
+            var danhsach = db.THIET_BI.Where(m => m.MaTang == maTang&&m.TinhTrang=="Đang nhập").ToList();
             if (danhsach != null)
             {
                 foreach (var thietbi in danhsach)

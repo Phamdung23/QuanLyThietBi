@@ -86,8 +86,7 @@
     <div class="container">
         <h1>Tìm Kiếm Loại Thiết Bị</h1>
         <div id="search-box">
-            <input type="text" id="search-input" placeholder="Mã loại thiết bị..." name="maLoai">
-            <button id="search-button">Tìm Kiếm</button>
+            
         </div>
         <table id="result-table">
             <thead>
@@ -103,11 +102,11 @@
                     {
                         foreach (var item in Model)
                         {
-                            <tr>
-                                <td>@item.MaLoai</td>
-                                <td>@item.TenLoai</td>
-                                <td>@item.DVT</td>
-                            </tr>
+                                <tr>
+                                    <td>@item.MaLoai</td>
+                                    <td>@item.TenLoai</td>
+                                    <td>@item.DVT</td>
+                                </tr>
                         }
                     }
                 }

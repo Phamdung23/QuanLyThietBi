@@ -1,4 +1,4 @@
-﻿@model DATA.Entity.CAP_PHAT
+﻿ @model DATA.Entity.CAP_PHAT
 @{
     ViewBag.Title = "ThemPhieuCP";
     Layout = "~/Share/layout.cshtml";
@@ -65,7 +65,7 @@
                     </div>
 
                     <div class="Nhapdiv">
-                        <label for="MaDV">Loại thiết bị:</label>
+                        <label for="MaDV">Đơn vị</label>
                         <select name="MaDV" id="mySelect">
                             @{
                                 foreach (var item in db.DON_VI)

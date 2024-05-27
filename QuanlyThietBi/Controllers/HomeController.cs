@@ -13,16 +13,5 @@ namespace QuanlyThietBi.Controllers
         {
             return View(); 
         }
-
-        public  ActionResult DanhMuc()
-        {
-            return View();
-        }
-
-        public ActionResult DanhmucNhomTB()
-        {
-            return View();
-        }
-
     }
 }

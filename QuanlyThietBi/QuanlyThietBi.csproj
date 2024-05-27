@@ -98,15 +98,18 @@
     <Content Include="Global.asax" />
     <Content Include="Them\CSS\CapPhat\CapPhatvw.css" />
     <Content Include="Them\CSS\CapPhat\ThemPhieuCP2.css" />
+    <Content Include="Them\CSS\CapPhat\ThemPhieuCP3.css" />
     <Content Include="Them\CSS\DangNhap\Login.css" />
     <Content Include="Them\CSS\DangNhap\Signup.css" />
     <Content Include="Them\CSS\DanhMuc\DanhMucMenu.css" />
     <Content Include="Them\CSS\DanhMuc\DonVi.css" />
     <Content Include="Them\CSS\DanhMuc\HangSanXuat.css" />
     <Content Include="Them\CSS\DanhMuc\NhomThietBi.css" />
+    <Content Include="Them\CSS\DanhMuc\ThemMoiLoaiTB.css" />
     <Content Include="Them\CSS\HeThong\TaiKhoan.css" />
     <Content Include="Them\CSS\Home\dmLayoutchung.css" />
     <Content Include="Them\CSS\Home\dmNhomTB.css" />
+    <Content Include="Them\CSS\Home\Home.css" />
     <Content Include="Them\CSS\layout.css" />
     <Content Include="Them\CSS\QuanLy\ChiTietPhieu.css" />
     <Content Include="Them\CSS\QuanLy\ChiTietThietBi.css" />
@@ -114,12 +117,16 @@
     <Content Include="Them\CSS\QuanLy\QuanLychung.css" />
     <Content Include="Them\CSS\QuanLy\SuaPhieuNhap.css" />
     <Content Include="Them\CSS\QuanLy\ThemPhieuNhap.css" />
+    <Content Include="Them\Images\439312849_848719727300030_3160010469119867134_n.jpg" />
     <Content Include="Them\Images\address.png" />
     <Content Include="Them\Images\email.png" />
     <Content Include="Them\Images\hotline.png" />
+    <Content Include="Them\Images\images %281%29.jpg" />
+    <Content Include="Them\Images\images.jpg" />
     <Content Include="Them\Images\Login_background.jpg" />
     <Content Include="Them\Images\Logo_MTA_new.png" />
     <Content Include="Them\Images\pexels-photo-745365.jpeg" />
+    <Content Include="Them\Js\scripts.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -166,6 +173,9 @@
     <Content Include="Views\HeThong\ChangePasswordFailed.cshtml" />
     <Content Include="Views\HeThong\TroGiup.cshtml" />
     <Content Include="Views\DanhMuc\ThemMoiLoaiTB.cshtml" />
+    <Content Include="Views\DanhMuc\SreachLoaiThietBi.cshtml" />
+    <Content Include="Views\DanhMuc\ThemMoiDonVi.cshtml" />
+    <Content Include="Views\DanhMuc\ThemMoiHSX.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -28,23 +28,41 @@ namespace QuanlyThietBi.Controllers
         {
             var map = new mapCapPh();
             CAP_PHAT model = map.ThemPhieuCP(Model);
-            return RedirectToAction("ThemPhieuCP2", new {maCP = model.MaCP}); 
+            return RedirectToAction("ThemPhieuCP2", new { maCP = model.MaCP });  
         }
 
+        /*
+        public ActionResult ThemPhieuCP2(int maCP)   
+        {
+            var map = new mapCapPh();    
+            var model = map.sreach(maCP);  
+            return View();  
+        }
+
+        */
+
+        [HttpPost]
         public ActionResult ThemPhieuCP2(int maCP)
         {
             var map = new mapCapPh();
-            CAP_PHAT model = map.sreach(maCP);
-            return View(model); 
+            var model = map.sreach(maCP);
+            if (model != null)
+            {
+                return RedirectToAction("ThemPhieuCP3", new { m = model });
+            }
+            return View();
         }
 
+        public ActionResult ThemPhieuCP3(CAP_PHAT model)
+        {
+            return View(model);     
+        }
 
-
-        public ActionResult ThemPhieuCP3(int maCP)
+        public ActionResult CapPhatThietBi(int maTB, int maCP, int maDV)
         {
             var map = new mapCapPh();
-            CAP_PHAT Model = map.sreach(maCP);
-            return View(Model); 
+            map.CapPhat(maTB, maCP, maDV);
+            return RedirectToAction("ThemPhieuCP3", new { maCP = maCP });
         }
     }
 }

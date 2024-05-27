@@ -41,11 +41,11 @@ namespace QuanlyThietBi.Controllers
             if(map.ThemMoi(Modeltaikhoan) == true)
             {
                 return RedirectToAction("Login");
-            }
+            } 
             else
             {
                 return View(Modeltaikhoan);
             }
-        }
+        }  
     }
 }

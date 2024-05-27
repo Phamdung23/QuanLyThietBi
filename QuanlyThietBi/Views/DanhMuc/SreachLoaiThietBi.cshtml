@@ -1,6 +1,6 @@
-﻿@model List<DATA.Entity.HANG_SX>
+﻿@model DATA.Entity.LOAI_THIET_BI
 @{
-    ViewBag.Title = "HangSanXuat";
+    ViewBag.Title = "SreachLoaiThietBi";
     Layout = "~/Share/layout.cshtml";
 }
 
@@ -9,7 +9,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hãng sản xuất</title>
+    <title>Tìm Kiếm Loại Thiết Bị</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -84,39 +84,31 @@
 </head>
 <body>
     <div class="container">
-        <h1>Hãng sản xuất</h1>
-        <div id="search-box">
-            
-        </div>
+        <h1>Tìm Kiếm Loại Thiết Bị</h1>
         <table id="result-table">
             <thead>
                 <tr>
-                    <th>Mã hãng sản xuất</th>
-                    <th>Tên hãng sản xuất</th>
+                    <th>Mã Loại Thiết Bị</th>
+                    <th>Tên Loại Thiết Bị</th>
+                    <th>Đơn vị tính</th>
                 </tr>
             </thead>
             <tbody>
                 @{
-                    if (Model != null)
-                    {
-                        foreach (var item in Model)
-                        {
-                                <tr>
-                                    <td>@item.MaHang</td>
-                                    <td>@item.TenHang</td>
-                                </tr>
-                        }
-                    }
+                  <tr>
+                         <td>@Model.MaLoai</td>
+                         <td>@Model.TenLoai</td>
+                         <td>@Model.DVT</td>
+                  </tr>
                 }
             </tbody>
         </table>
-        <button id="add-button">@Html.ActionLink("Thêm mới hãng sản xuất", "ThemMoiHSX")</button>
+        <button id="add-button">@Html.ActionLink("OK", "NhomThietBi")</button>
     </div>
 
     <script>
     </script>
 </body>
 </html>
-
 
 

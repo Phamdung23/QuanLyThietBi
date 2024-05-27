@@ -1,4 +1,5 @@
 ﻿using DATA;
+using DATA.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,23 +15,69 @@ namespace QuanlyThietBi.Controllers
         {
             return View();
         }
-
+        
+        // Loại thiết bị
         public ActionResult NhomThietBi() {
-            return View();
-        }
-
-        public ActionResult HangSanXuat() {
-            return View();
-        }
-
-        public ActionResult DonVi()
-        {
-            return View();
-        } 
-
+            var map = new mapDanhMuc();
+            var data = map.DSLoaiThietBi();
+            return View(data);
+        }              
+        
         public ActionResult ThemMoiLoaiTB()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult ThemMoiLoaiTB(LOAI_THIET_BI Model)
+        {
+            var map = new mapDanhMuc();
+            map.ThemLoaiThietBi(Model);
+            return RedirectToAction("ThemMoiLoaiTB");
+        }
+
+
+        // Hãng sản xuất
+        public ActionResult HangSanXuat()
+        {
+            var map = new mapDanhMuc();
+            var data = map.DSHangSanXuat(); 
+            return View(data);
+        }
+
+        public ActionResult ThemMoiHSX()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ThemMoiHSX(HANG_SX Model)
+        {
+            var map = new mapDanhMuc();
+            map.ThemHSX(Model); 
+            return RedirectToAction("ThemMoiHSX");
+        }
+
+
+        // Đơn vị
+        public ActionResult DonVi()
+        {
+            var map = new mapDanhMuc();
+            var data = map.DSDonVi();   
+            return View(data);
+        }
+
+        public ActionResult ThemMoiDonVi()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult ThemMoiDonVi(DON_VI Model)
+        {
+            var map = new mapDanhMuc();
+            map.ThemDonVi(Model);
+            return RedirectToAction("ThemMoiDonVI");
         }
     }
 }

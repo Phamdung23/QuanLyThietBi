@@ -1,40 +1,126 @@
-﻿
+﻿@model List<DATA.Entity.DON_VI>
 @{
     ViewBag.Title = "DonVi";
     Layout = "~/Share/layout.cshtml";
 }
 
-<!DOCTYPE html>
 
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta name="viewport" content="width=device-width" />
-    <link href="~/Them/CSS/DanhMuc/DanhMucMenu.css" rel="stylesheet" />
-    <link href="~/Them/CSS/DanhMuc/DonVi.css" rel="stylesheet" />
-    <title>@ViewBag.Title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đơn vị</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 0 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        #search-box {
+            margin-bottom: 20px;
+        }
+
+        #search-input {
+            width: 300px;
+            padding: 8px;
+            font-size: 16px;
+        }
+
+        #search-button {
+            padding: 8px 16px;
+            font-size: 16px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            #search-button:hover {
+                background-color: #0056b3;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+
+        #add-button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #28a745;
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+
+            #add-button:hover {
+                background-color: #218838;
+            }
+    </style>
 </head>
 <body>
-    <div class="DanhMucTB">
-        <div id="DanhMucmenu">
-            <h3 class="TieuDe">DANH MỤC</h3>
-            <ul>
-                <li id="idNhomThietBi"><a href="~/DanhMuc/NhomThietBi">Nhóm thiết bị</a></li>
-                <li id="idHangSanXuat"><a href="~/DanhMuc/HangSanXuat">Hãng sản xuất</a></li>
-                <li id="idDonVi"><a href="~/DanhMuc/DonVi">Đơn vị</a></li>
-            </ul>
+    <div class="container">
+        <h1>Đơn vị</h1>
+        <div id="search-box">
+            
         </div>
-
-        <div id="Main_NhomThietBi">
-            <div id="nav-NhomThietBi">
-
-            </div>
-            <div id="BangNhomThietBi">
-
-            </div>
-        </div>
+        <table id="result-table">
+            <thead>
+                <tr>
+                    <th>Mã đơn vị</th>
+                    <th>Tên đơn vị</th>
+                    <th>Số điện thoại</th>
+                </tr>
+            </thead>
+            <tbody>
+                @{
+                    if (Model != null)
+                    {
+                        foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>@item.MaDV</td>
+                                <td>@item.TenDV</td>
+                                <td>@item.SDT</td>
+                            </tr>
+                        }
+                    }
+                }
+            </tbody>
+        </table>
+        <button id="add-button">@Html.ActionLink("Thêm mới đơn vị", "ThemMoiDonVi")</button>
     </div>
+
+    <script>
+    </script>
 </body>
 </html>
+
 
 
 

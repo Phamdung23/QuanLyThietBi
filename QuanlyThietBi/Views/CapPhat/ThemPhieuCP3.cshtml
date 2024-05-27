@@ -1,8 +1,46 @@
-﻿
+﻿@model DATA.Entity.CAP_PHAT
 @{
     ViewBag.Title = "ThemPhieuCP3";
     Layout = "~/Share/layout.cshtml";
+    List<DATA.Entity.THIET_BI> db = new List<DATA.Entity.THIET_BI>();
 }
 
-<h2>ThemPhieuCP3</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh Sách Thiết Bị</title>
+    <link href="~/Them/CSS/CapPhat/ThemPhieuCP3.css" rel="stylesheet" />
+</head>
+<body>
+    <div class="container">
+        <h1>Danh Sách Thiết Bị</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>Mã Thiết Bị</th>
+                    <th>Tên Thiết Bị</th>
+                    <th>Mã Loại Thiết Bị</th>
+                    <th>Tên Kho</th>
+                    <th>Tool</th>
+                </tr>
+            </thead>
+            <tbody>    
+                @foreach(var item in db.Where(m=>m.MaKho == Model.MaKho && m.MaLoai == Model.MaLoai))
+                 { 
+                    <tr>
+                        <td>@item.MaTB</td>
+                        <td>@item.TenTB</td> 
+                        <td>@item.MaLoai</td>
+                        <td>@item.MaKho</td>
+                        <td>@Html.ActionLink("Cấp phát","CapPhatThietBi")</td>
+                    </tr>
+                 }
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>
+
 
